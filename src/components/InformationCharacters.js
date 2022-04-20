@@ -27,6 +27,7 @@ export default function InformationCharacter() {
       }
     });
   const {
+    id,
     name,
     created,
     height,
@@ -85,43 +86,39 @@ export default function InformationCharacter() {
   const longitudPeliculas = films.edges.length - 1;
   const peliculas = films.edges[iterador].node;
   return (
-    <>
-      <main className="flex flex-col justify-center items-center">
-        <section className="w-full text-center">
-          <div className="bg-zinc-100 mb-3">
-            <h2 className="text-lg text-zinc-100 font-semibold text-center">
-              Información Del Personaje
-            </h2>
-          </div>
-          {datoPersonaje}
-        </section>
-        <section className="w-3/4 md:w-2/3 text-center mt-5 mb-3 ">
-          <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">
-            Peliculas En Las que aparecio
+    <main className="flex flex-col justify-center items-center">
+      <section className="w-full text-center">
+        <div className="bg-zinc-100 mb-3">
+          <h2 className="text-lg text-zinc-100 font-semibold text-center">
+            Información Del Personaje
           </h2>
-          <div>
-            <CarruselPeliculas peliculas={peliculas} />
-          </div>
-          <div className="w-full flex h-7 bg-slate-400 justify-evenly rounded-md">
-            <Icon
-              icon="octicon:chevron-left-16"
-              className="w-full hover:bg-slate-300 h-full"
-              onClick={() =>
-                setIterador(iterador > 0 ? iterador - 1 : longitudPeliculas)
-              }
-            />
-            <Icon
-              icon="octicon:chevron-right-16"
-              className="w-full hover:bg-slate-300 h-full"
-              onClick={() =>
-                setIterador(
-                  iterador < films.edges.length - 1 ? iterador + 1 : 0
-                )
-              }
-            />
-          </div>
-        </section>
-      </main>
-    </>
+        </div>
+        {datoPersonaje}
+      </section>
+      <section className="w-3/4 md:w-2/3 text-center mt-3 mb-3 ">
+        <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">
+          Peliculas En Las que aparecio
+        </h2>
+        <div>
+          <CarruselPeliculas peliculas={peliculas} />
+        </div>
+        <div className="w-full flex h-7 bg-slate-400 justify-evenly rounded-md">
+          <Icon
+            icon="octicon:chevron-left-16"
+            className="w-full hover:bg-slate-300 h-full"
+            onClick={() =>
+              setIterador(iterador > 0 ? iterador - 1 : longitudPeliculas)
+            }
+          />
+          <Icon
+            icon="octicon:chevron-right-16"
+            className="w-full hover:bg-slate-300 h-full"
+            onClick={() =>
+              setIterador(iterador < films.edges.length - 1 ? iterador + 1 : 0)
+            }
+          />
+        </div>
+      </section>
+    </main>
   );
 }

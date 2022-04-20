@@ -22,6 +22,7 @@ const allData = gql`
             edges {
               node {
                 title
+                id
                 planets {
                   edges {
                     node {
