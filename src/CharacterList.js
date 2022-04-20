@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
-import { Movie } from "./Movie";
-const allMovies = gql`
+import { Movie } from "./Character";
+const allData = gql`
   query {
     allPeople {
       edges {
@@ -42,10 +42,10 @@ const allMovies = gql`
   }
 `;
 export function Datos() {
-  const { error, loading, data } = useQuery(allMovies);
+  const { error, loading, data } = useQuery(allData);
   return { error, loading, data };
 }
-export default function MovieList() {
+export default function CharacterList() {
   const { loading, data } = Datos();
   if (loading) return <p className="col-span-2  justify-center">Cargando...</p>;
   const characters = data?.allPeople?.edges.map((edge) => {

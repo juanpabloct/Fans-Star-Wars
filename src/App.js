@@ -1,5 +1,5 @@
 import Navbar from "./components/navbar";
-import MovieList from "./MovieList";
+import CharacterList from "./CharacterList";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
           Personajes De Star Wars
         </section>
         <div className="grid grid-cols-2 mt-2  w-11/12 justify-items-center gap-14">
-          <MovieList />
+          <CharacterList />
         </div>
       </main>
     </>

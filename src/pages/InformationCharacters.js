@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { Datos } from "../MovieList";
+import { Datos } from "../CharacterList";
 import Navbar from "../components/navbar";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
-export default function InformationMovie() {
+export default function InformationCharacter() {
   const { nombre } = useParams();
   const { data } = Datos();
   const datos = data?.allPeople?.edges;

@@ -3,7 +3,7 @@ import { useRef } from "react";
 export const Movie = ({ node }) => {
   const { name, eyeColor, birthYear, skinColor, gender } = node;
   const nameCharacter = useRef();
-  function Titulo(data) {
+  function Personaje(data) {
     const getName = nameCharacter.current.innerHTML;
     window.location.href = `/personaje/${getName}`;
   }
@@ -38,7 +38,7 @@ export const Movie = ({ node }) => {
         </div>
         <button
           className="bg-slate-600 w-1/3 rounded-lg mb-4 hover:bg-slate-800 text-white"
-          onClick={(data) => Titulo(data)}
+          onClick={(data) => Personaje(data)}
         >
           ver más
         </button>
