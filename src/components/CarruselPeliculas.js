@@ -4,13 +4,11 @@ import UseCaratula from "../useCaratula";
 export default function CarruselPeliculas(props) {
   const peliculas = props.peliculas;
   const { title, director, planets } = peliculas;
-  console.log(title);
   const planetas = planets.edges;
   const { urlImage, fetchData } = UseCaratula({ title });
   useEffect(() => {
     fetchData();
   }, [title]);
-  console.log(urlImage);
   const planetasList = planetas.map((value) => {
     const { name } = value.node;
     return (

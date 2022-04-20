@@ -4,7 +4,6 @@ import axios from "axios";
 
 export default function UseCaratula({ title }) {
   const titleImage = title;
-  console.log(titleImage);
   const [urlImage, setUrlImage] = useState();
   const [loading, setLoading] = useState(true);
   const fetchData = useCallback(async () => {
