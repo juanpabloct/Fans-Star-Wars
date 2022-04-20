@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/navbar";
+import MovieList from "./MovieList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <main className="flex flex-col items-center">
+        <section className="text-center text-2xl mt-3 font-semibold">
+          Personajes De Star Wars
+        </section>
+        <div className="grid grid-cols-2 mt-2  w-11/12 justify-items-center gap-14">
+          <MovieList />
+        </div>
+      </main>
+    </>
   );
 }
 
