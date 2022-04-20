@@ -1,5 +1,5 @@
-import Navbar from "./components/navbar";
-import CharacterList from "./CharacterList";
+import CharacterList from "../CharacterList";
+import Navbar from "../components/navbar";
 
 function App() {
   return (

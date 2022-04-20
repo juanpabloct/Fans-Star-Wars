@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Datos } from "../CharacterList";
-import Navbar from "../components/navbar";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import CarruselPeliculas from "./CarruselPeliculas";
 
 export default function InformationCharacter() {
   const { nombre } = useParams();
@@ -13,7 +13,6 @@ export default function InformationCharacter() {
   if (!datos) {
     return (
       <>
-        <Navbar />
         <div className="text-center w-full h-screen flex items-center justify-center">
           Cargando...
         </div>
@@ -84,34 +83,9 @@ export default function InformationCharacter() {
     );
   });
   const longitudPeliculas = films.edges.length - 1;
-  function CarruselPeliculas() {
-    const { title, director, planets } = films.edges[iterador].node;
-    const planetas = planets.edges;
-    const planetasList = planetas.map((value) => {
-      const { id, name } = value.node;
-      return <div key={id}>{name}</div>;
-    });
-    return (
-      <div className="">
-        <div className="bg-red-400 rounded-lg text-white text-lg py-2">
-          <h2 className="py-2">{title}</h2>
-          <span>Director de Pelicula: {director.name}</span>
-        </div>
-        <div className="">
-          <hr />
-          <h3 className="text-zinc-800 font-semibold bg-slate-50 text-lg">
-            Planetas Que aparecen
-          </h3>
-          <div className="grid grid-cols-2 text-white bg-orange-300 rounded-md text-lg py-2">
-            {planetasList}
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const peliculas = films.edges[iterador].node;
   return (
     <>
-      <Navbar />
       <main className="flex flex-col justify-center items-center">
         <section className="w-full text-center">
           <div className="bg-zinc-100 mb-3">
@@ -121,12 +95,12 @@ export default function InformationCharacter() {
           </div>
           {datoPersonaje}
         </section>
-        <section className="w-3/4 md:w-2/3 text-center mt-5 mb-5 ">
+        <section className="w-3/4 md:w-2/3 text-center mt-5 mb-3 ">
           <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">
             Peliculas En Las que aparecio
           </h2>
           <div>
-            <CarruselPeliculas />
+            <CarruselPeliculas peliculas={peliculas} />
           </div>
           <div className="w-full flex h-7 bg-slate-400 justify-evenly rounded-md">
             <Icon
