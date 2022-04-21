@@ -1,11 +1,11 @@
 import { useRef } from "react";
 
 export const Movie = ({ node }) => {
-  const { name, eyeColor, birthYear, skinColor, gender } = node;
+  const { name, eyeColor, birthYear, skinColor, gender, id } = node;
   const nameCharacter = useRef();
   function Personaje(data) {
     const getName = nameCharacter.current.innerHTML;
-    window.location.href = `/personaje/${getName}`;
+    window.location.href = `/personaje/${id}`;
   }
   return (
     <>
@@ -20,10 +20,7 @@ export const Movie = ({ node }) => {
           </div>
           <div className="w-full ">
             <div className="w-10/12 m-auto mb-4 ">
-              <h2 className="text-center text-lg font-medium">
-                {" "}
-                Caracteristicas
-              </h2>
+              <h2 className="text-center text-lg font-medium"> Caracteristicas</h2>
               <div className="flex flex-col items-center justify-center">
                 <ul>
                   <li>Color de Ojos: {eyeColor}</li>
