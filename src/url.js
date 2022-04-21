@@ -6,7 +6,7 @@ export default function Url() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/personaje/:nombre" element={<PersonajeNombre />} />
+        <Route path="/personaje/:Id" element={<PersonajeNombre />} />
       </Routes>
     </BrowserRouter>
   );
