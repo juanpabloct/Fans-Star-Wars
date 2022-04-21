@@ -20,8 +20,8 @@ export default function InformationCharacter() {
   const DatoPersonaje = () => {
     return (
       <div className="bg-slate-300 w-3/4 md:w-2/3 m-auto py-4  rounded-xl" key={id}>
-        <h2 className="text-lg md:text-xl">{name}</h2>
-        <ol className="grid justify-items-start justify-around capitalize ml-6 text-base md:text-lg">
+        <h2 className="text-xl md:text-2xl font-bold leading-loose font-mono ">{name}</h2>
+        <ol className="grid justify-items-start justify-around capitalize ml-6 text-base md:text-lg font-sans">
           {[
             {
               name: "Fecha de creación",
@@ -34,7 +34,7 @@ export default function InformationCharacter() {
             { name: " Color de la piel", value: skinColor },
             { name: " Fecha de Cumpleaños", value: birthYear },
             { name: " Genero", value: gender },
-            { name: " Mundo Natal:", value: homeWorld.name },
+            { name: " Planeta Natal", value: homeWorld.name },
           ].map((value, i) => {
             const { name } = value;
             return (
@@ -54,7 +54,7 @@ export default function InformationCharacter() {
     <main className="flex flex-col justify-center items-center">
       <section className="w-full text-center">
         <div className="bg-zinc-100 mb-3">
-          <h2 className="text-lg text-zinc-100 font-semibold text-center">Información Del Personaje</h2>
+          <h2 className="text-lg font-semibold text-center font-mono leading-relaxed">Información Del Personaje</h2>
         </div>
         {<DatoPersonaje />}
       </section>

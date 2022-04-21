@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Movie } from "./Character";
+import { AllCharacters } from "./Character";
 const allData = gql`
   query {
     allPeople {
@@ -32,7 +32,7 @@ export default function CharacterList() {
   if (loading) return <p className="col-span-2  justify-center">Cargando...</p>;
   const characters = data?.allPeople?.edges.map((edge) => {
     const { node } = edge;
-    return <Movie key={node.id} node={node} />;
+    return <AllCharacters key={node.id} node={node} />;
   });
   return <>{characters}</>;
 }

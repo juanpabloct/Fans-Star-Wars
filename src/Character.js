@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const Movie = ({ node }) => {
+export const AllCharacters = ({ node }) => {
   const { name, eyeColor, birthYear, skinColor, gender, id } = node;
   const nameCharacter = useRef();
   function Personaje(data) {
@@ -9,7 +9,7 @@ export const Movie = ({ node }) => {
   }
   return (
     <>
-      <section className="col-span-2 lg:col-span-1 justify-items-center flex flex-col items-center border-2 border-b-gray-200 rounded-2xl mt-5 mb-6 shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 w-10/12 ">
+      <section className="col-span-2 lg:col-span-1 justify-items-center flex flex-col items-center border-2 border-b-gray-200 rounded-2xl mt-5 mb-6 shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 w-10/12 lg:w-11/12 ">
         <div className="w-3/4 bg-gray-200 flex flex-col items-center rounded-lg">
           <div className=" mt-4 w-2/3 flex flex-col items-center justify-center mb-4">
             <div>
@@ -24,7 +24,6 @@ export const Movie = ({ node }) => {
               <div className="flex flex-col items-center justify-center">
                 <ul>
                   <li>Color de Ojos: {eyeColor}</li>
-                  <li>Fecha de nacimiento: {birthYear}</li>
                   <li>Fecha de nacimiento: {birthYear}</li>
                   <li>Color: {skinColor}</li>
                   <li>Genero: {gender}</li>

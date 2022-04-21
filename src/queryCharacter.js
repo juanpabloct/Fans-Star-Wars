@@ -4,6 +4,7 @@ export default function Person(Id) {
   const datos = gql`
     query People($id: ID!) {
       people(id: $id) {
+        created
         name
         id
         height
