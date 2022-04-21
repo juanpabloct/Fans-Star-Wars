@@ -19,7 +19,7 @@ export default function InformationCharacter() {
     data.people;
   const DatoPersonaje = () => {
     return (
-      <div className="bg-slate-300 w-11/12 md:w-3/4 m-auto py-4  rounded-xl" key={id}>
+      <div className="bg-slate-300 w-3/4 md:w-2/3 m-auto py-4  rounded-xl" key={id}>
         <h2 className="text-lg md:text-xl">{name}</h2>
         <ol className="grid justify-items-start justify-around capitalize ml-6 text-base md:text-lg">
           {[
