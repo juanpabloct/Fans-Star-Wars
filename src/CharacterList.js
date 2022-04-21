@@ -18,25 +18,6 @@ const allData = gql`
           homeWorld {
             name
           }
-          films {
-            edges {
-              node {
-                title
-                id
-                planets {
-                  edges {
-                    node {
-                      name
-                      id
-                    }
-                  }
-                }
-                director {
-                  name
-                }
-              }
-            }
-          }
         }
       }
     }
