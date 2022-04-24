@@ -1,10 +1,9 @@
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
-export const AllCharacters = ({ node }) => {
+export const AllCharacters = (props) => {
+  const node = props.node;
   const { name, eyeColor, birthYear, skinColor, gender, id } = node;
-  const nameCharacter = useRef();
   function Personaje(data) {
-    const getName = nameCharacter.current.innerHTML;
     window.location.href = `/personaje/${id}`;
   }
   return (
@@ -13,9 +12,7 @@ export const AllCharacters = ({ node }) => {
         <div className="w-3/4 bg-gray-200 flex flex-col items-center rounded-lg">
           <div className=" mt-4 w-2/3 flex flex-col items-center justify-center mb-4">
             <div>
-              <h2 className="font-semibold text-lg inline" ref={nameCharacter}>
-                {name}
-              </h2>
+              <h2 className="font-semibold text-lg inline">{name}</h2>
             </div>
           </div>
           <div className="w-full ">

@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
+import { useContext, useEffect } from "react";
 import { AllCharacters } from "./Character";
+import ContextoBusqueda from "./context/contextoBusqueda";
 const allData = gql`
   query {
     allPeople {
@@ -27,7 +29,7 @@ export function Datos() {
   const { error, loading, data } = useQuery(allData);
   return { error, loading, data };
 }
-export default function CharacterList() {
+export default function CharacterList(props) {
   const { loading, data } = Datos();
   if (loading) return <p className="col-span-2  justify-center">Cargando...</p>;
   const characters = data?.allPeople?.edges.map((edge) => {
