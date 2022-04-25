@@ -1,5 +1,3 @@
-import { useCallback, useEffect, useRef } from "react";
-
 export const AllCharacters = (props) => {
   const node = props.node;
   const { name, eyeColor, birthYear, skinColor, gender, id } = node;

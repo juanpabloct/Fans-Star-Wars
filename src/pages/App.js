@@ -33,7 +33,10 @@ function App() {
       <main className="flex flex-col items-center">
         <section className="text-center text-2xl mt-3 font-semibold font-mono">Personajes De Star Wars</section>
         <Busqueda valor={setBusqueda} />
-        <div className="grid grid-cols-2 2xl:grid-cols-3 mt-2  w-11/12 justify-items-center gap-7" ref={container}>
+        <div
+          className=" grid grid-cols-2 xl:grid-cols-3 mt-2  w-11/12 justify-items-center gap-4 lg:gap-5"
+          ref={container}
+        >
           <CharacterList buscar={busqueda} />
         </div>
       </main>
