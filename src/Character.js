@@ -18,8 +18,8 @@ export const AllCharacters = (props) => {
               <h2 className="text-center text-lg font-medium"> Caracteristicas</h2>
               <div className="flex flex-col items-center justify-center">
                 <ul>
-                  <li>Color de Ojos: {eyeColor}</li>
-                  <li>Fecha de nacimiento: {birthYear}</li>
+                  <li>Ojos: {eyeColor}</li>
+                  <li>Nacimiento: {birthYear}</li>
                   <li>Color: {skinColor}</li>
                   <li>Genero: {gender}</li>
                 </ul>

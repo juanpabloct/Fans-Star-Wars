@@ -19,26 +19,26 @@ export default function InformationCharacter() {
     data.people;
   const DatoPersonaje = () => {
     return (
-      <div className="bg-slate-300 w-3/4 md:w-2/3 m-auto py-4  rounded-xl" key={id}>
+      <div className="bg-white w-3/4 md:w-2/3 m-auto py-4  rounded-xl" key={id}>
         <h2 className="text-xl md:text-2xl font-bold leading-loose font-mono ">{name}</h2>
-        <ol className="grid justify-items-start justify-around capitalize ml-6 text-base md:text-lg font-sans">
+        <ol className="grid md:grid-cols-3 justify-items-start items-center justify-around capitalize ml-6 text-base md:text-lg font-sans">
           {[
             {
               name: "Fecha de creación",
               value: created,
             },
-            { name: " Anchura del personaje", value: height },
-            { name: " Masa del personaje", value: mass },
-            { name: " Color del cabello", value: hairColor },
-            { name: " Color de los Ojos", value: eyeColor },
-            { name: " Color de la piel", value: skinColor },
-            { name: " Fecha de Cumpleaños", value: birthYear },
+            { name: " Anchura", value: height },
+            { name: " Masa", value: mass },
+            { name: " Cabello", value: hairColor },
+            { name: " Ojos", value: eyeColor },
+            { name: " Color de piel", value: skinColor },
+            { name: " Cumpleaños", value: birthYear },
             { name: " Genero", value: gender },
             { name: " Planeta Natal", value: homeWorld.name },
           ].map((value, i) => {
             const { name } = value;
             return (
-              <li key={i}>
+              <li key={i} className="text-left text-xs sm:text-sm">
                 <span className="font-semibold">{name}: </span>
                 {value.value}
               </li>
@@ -51,9 +51,9 @@ export default function InformationCharacter() {
   const longitudPeliculas = films.edges.length - 1;
   const peliculas = films.edges[iterador].node;
   return (
-    <main className="flex flex-col justify-center items-center">
+    <main className="flex flex-col justify-center items-center bg-gradient-to-b from-zinc-300 to-slate-200">
       <section className="w-full text-center">
-        <div className="bg-zinc-100 mb-3">
+        <div className="bg-zinc-600 text-white mb-3">
           <h2 className="text-lg font-semibold text-center font-mono leading-relaxed">Información Del Personaje</h2>
         </div>
         {<DatoPersonaje />}
@@ -61,14 +61,16 @@ export default function InformationCharacter() {
       <section className="w-3/4 md:w-2/3 text-center mt-3 mb-3 ">
         <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">Peliculas En Las que aparecio</h2>
         <div>{<CarruselPeliculas peliculas={peliculas} />}</div>
-        <div className="w-full flex h-7 bg-slate-400 justify-evenly rounded-md">
+        <div className="w-full flex h-7 bg-slate-800 justify-evenly rounded-md">
           <Icon
+            color="white"
             icon="octicon:chevron-left-16"
             className="w-full hover:bg-slate-300 h-full"
             onClick={() => setIterador(iterador > 0 ? iterador - 1 : longitudPeliculas)}
           />
           <Icon
             icon="octicon:chevron-right-16"
+            color="white"
             className="w-full hover:bg-slate-300 h-full"
             onClick={() => setIterador(iterador < longitudPeliculas ? iterador + 1 : 0)}
           />
