@@ -1,7 +1,5 @@
-import { useRef, useState } from "react";
 
-export default function Busqueda(props) {
-  const setBusqueda = props.valor;
+export default function Busqueda({ setBusqueda }) {
   return (
     <>
       <section className="mt-2">

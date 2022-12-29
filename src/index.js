@@ -5,7 +5,7 @@ import Url from "./url";
 import reportWebVitals from "./reportWebVitals";
 
 import { ApolloProvider } from "@apollo/client";
-import Peliculas from "./client";
+import Peliculas from "./client/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

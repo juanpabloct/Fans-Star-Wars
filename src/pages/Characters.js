@@ -1,9 +1,9 @@
-import CharacterList from "../QueryCharacters";
+import CharacterList from "../schemas/QueryCharacters";
 import Navbar from "../components/navbar";
-import Busqueda from "../components/busqueda";
 import { useEffect, useRef, useState } from "react";
+import Busqueda from "../components/characters/busqueda"
 
-function App() {
+export const Characters = () => {
   const [busqueda, setBusqueda] = useState("");
   const [contenedorPadre, setContenedorPadre] = useState(false);
   const container = useRef();
@@ -32,7 +32,7 @@ function App() {
       <Navbar />
       <main className="flex flex-col items-center">
         <section className="text-center text-2xl mt-3 font-semibold font-mono">Personajes De Star Wars</section>
-        <Busqueda valor={setBusqueda} />
+        <Busqueda setBusqueda={setBusqueda} />
         <div
           className=" grid grid-cols-2 xl:grid-cols-3 mt-2  w-11/12 justify-items-center gap-4 lg:gap-5"
           ref={container}
@@ -44,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+

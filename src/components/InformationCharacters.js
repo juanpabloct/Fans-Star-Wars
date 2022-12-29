@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import CarruselPeliculas from "./CarruselPeliculas";
-import Person from "../queryCharacter";
-
+import Person from "../schemas/queryCharacter";
+import CarruselPeliculas from "../components/characters/CarruselPeliculas"
 export default function InformationCharacter() {
   const { Id } = useParams();
   const { data, loading } = Person(Id);
   const [iterador, setIterador] = useState(0);
+  console.log(data);
   if (loading) {
     return (
       <>
@@ -15,11 +15,13 @@ export default function InformationCharacter() {
       </>
     );
   }
-  const { id, name, created, height, mass, hairColor, eyeColor, skinColor, birthYear, gender, films, homeWorld } =
-    data.people;
+  const { id, name, created, height, mass, hairColor, eyeColor, skinColor, birthYear, gender, filmConnection, homeworld } =
+    data.person;
+  const { films } = filmConnection
+
   const DatoPersonaje = () => {
     return (
-      <div className="bg-white w-3/4 md:w-2/3 m-auto py-4  rounded-xl" key={id}>
+      <div className="bg-white w-3/4 md:w-2/3 m-auto p-4 border border-black rounded-xl" key={id}>
         <h2 className="text-xl md:text-2xl font-bold leading-loose font-mono ">{name}</h2>
         <ol className="grid md:grid-cols-3 justify-items-start items-center justify-around capitalize ml-6 text-base md:text-lg font-sans">
           {[
@@ -34,7 +36,7 @@ export default function InformationCharacter() {
             { name: " Color de piel", value: skinColor },
             { name: " Cumpleaños", value: birthYear },
             { name: " Genero", value: gender },
-            { name: " Planeta Natal", value: homeWorld.name },
+            { name: " Planeta Natal", value: homeworld.name },
           ].map((value, i) => {
             const { name } = value;
             return (
@@ -48,32 +50,32 @@ export default function InformationCharacter() {
       </div>
     );
   };
-  const longitudPeliculas = films.edges.length - 1;
-  const peliculas = films.edges[iterador].node;
+  const longitudPeliculas = films.length - 1;
+  const peliculas = films[iterador];
+  console.log(films);
   return (
     <main className="flex flex-col justify-center items-center bg-gradient-to-b from-zinc-300 to-slate-200">
-      <section className="w-full text-center">
-        <div className="bg-zinc-600 text-white mb-3">
+      <section className="w-full text-center bg-white flex flex-col">
+        <div className="bg-[red] text-white mb-3">
           <h2 className="text-lg font-semibold text-center font-mono leading-relaxed">Información Del Personaje</h2>
         </div>
-        {<DatoPersonaje />}
+        <DatoPersonaje />
       </section>
-      <section className="w-3/4 md:w-2/3 text-center mt-3 mb-3 ">
-        <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">Peliculas En Las que aparecio</h2>
-        <div>{<CarruselPeliculas peliculas={peliculas} />}</div>
-        <div className="w-full flex h-7 bg-slate-800 justify-evenly rounded-md">
-          <Icon
-            color="white"
-            icon="octicon:chevron-left-16"
-            className="w-full hover:bg-slate-300 h-full"
-            onClick={() => setIterador(iterador > 0 ? iterador - 1 : longitudPeliculas)}
-          />
-          <Icon
-            icon="octicon:chevron-right-16"
-            color="white"
-            className="w-full hover:bg-slate-300 h-full"
-            onClick={() => setIterador(iterador < longitudPeliculas ? iterador + 1 : 0)}
-          />
+      <section className="w-full flex justify-center items-center bg-white">
+        <div className="w-3/4 md:w-2/3 text-center mt-3 mb-3 ">
+
+          <h2 className="text-lg text-zinc-100 font-semibold bg-slate-800 rounded-lg">Peliculas En Las que aparecio</h2>
+          <div>{<CarruselPeliculas peliculas={peliculas} />}</div>
+          <div className={`w-full flex h-7 bg-slate-800  rounded-md items-center justify-center gap-2`}>
+            {films.map((film, i) => (iterador === i ?
+              <span className="cursor-pointer">
+                <Icon icon="material-symbols:circle" className="text-white" onClick={() => setIterador(i)} key={i} />
+              </span> :
+              <span className="cursor-pointer">
+                <Icon icon="material-symbols:circle-outline" className="text-white" onClick={() => setIterador(i)} key={i} />
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </main>

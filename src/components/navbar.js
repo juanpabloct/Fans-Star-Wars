@@ -8,11 +8,11 @@ export default function Navbar() {
           Fan Star Wars
         </nav>
       </Link>
-      <div className="bg-zinc-400 flex justify-evenly">
-        <Link to={"/"} className="hover:bg-zinc-600 w-full text-center">
+      <div className="bg-slate-800 flex justify-evenly text-white border-black border-t ">
+        <Link to={"/"} className=" w-full text-center">
           Personajes
         </Link>
-        <Link to={"/peliculas"} className="hover:bg-zinc-600 w-full text-center">
+        <Link to={"/peliculas"} className=" w-full text-center">
           Peliculas
         </Link>
       </div>

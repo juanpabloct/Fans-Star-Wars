@@ -1,14 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import UseCaratula from "../../useCaratula";
 
 export const Item = ({ node }) => {
   const { title } = node;
   const { urlImage, fetchData } = UseCaratula({ title: title });
+  const navigate = useNavigate()
   useEffect(() => {
     fetchData();
   }, [fetchData]);
   function masInformacion() {
-    window.location.href = "/pelicula/" + node.id;
+    navigate("/pelicula/" + node.id)
   }
 
   return (
